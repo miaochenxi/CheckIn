@@ -1,8 +1,20 @@
 {
   "version": 2,
-  "dgSpecHash": "IHnoU6hJ6XAY7j34jZonZuPPsx9sGO09LQzYhm5dv3P3ROMVgQjDCS3N3s2jDqNesVEKQewt4ercCq6FNN/tKA==",
+  "dgSpecHash": "DukkXIk6tKIhHpcRqIOfmqubksjZ7lYf/5mDVdOn5LRadIAP+gU0yt+S+H1K0tXeAKtrUlp6sD/vvU47yQh+1Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\miaoc\\source\\repos\\miaochenxi\\CheckIn\\CheckInWpf\\CheckInWpf.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\MCX\\Source\\Repos\\miaochenxi\\CheckIn\\CheckInWpf\\CheckInWpf.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\MCX\\.nuget\\packages\\entityframework\\6.3.0\\entityframework.6.3.0.nupkg.sha512",
+    "C:\\Users\\MCX\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.4\\microsoft.aspnet.webapi.client.5.2.4.nupkg.sha512",
+    "C:\\Users\\MCX\\.nuget\\packages\\newtonsoft.json\\11.0.1\\newtonsoft.json.11.0.1.nupkg.sha512",
+    "C:\\Users\\MCX\\.nuget\\packages\\pathoschild.http.fluentclient\\3.2.0\\pathoschild.http.fluentclient.3.2.0.nupkg.sha512",
+    "C:\\Users\\MCX\\.nuget\\packages\\system.data.sqlite\\1.0.113.1\\system.data.sqlite.1.0.113.1.nupkg.sha512",
+    "C:\\Users\\MCX\\.nuget\\packages\\system.data.sqlite.core\\1.0.113.1\\system.data.sqlite.core.1.0.113.1.nupkg.sha512",
+    "C:\\Users\\MCX\\.nuget\\packages\\system.data.sqlite.ef6\\1.0.113\\system.data.sqlite.ef6.1.0.113.nupkg.sha512",
+    "C:\\Users\\MCX\\.nuget\\packages\\system.data.sqlite.linq\\1.0.113\\system.data.sqlite.linq.1.0.113.nupkg.sha512",
+    "C:\\Users\\MCX\\.nuget\\packages\\system.drawing.common\\4.7.0\\system.drawing.common.4.7.0.nupkg.sha512",
+    "C:\\Users\\MCX\\.nuget\\packages\\system.text.encodings.web\\4.4.0\\system.text.encodings.web.4.4.0.nupkg.sha512",
+    "C:\\Users\\MCX\\.nuget\\packages\\tencentcloudsdk\\3.0.149\\tencentcloudsdk.3.0.149.nupkg.sha512"
+  ],
   "logs": []
 }
