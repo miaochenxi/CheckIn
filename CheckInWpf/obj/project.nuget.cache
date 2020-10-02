@@ -1,20 +1,20 @@
 {
   "version": 2,
-  "dgSpecHash": "DukkXIk6tKIhHpcRqIOfmqubksjZ7lYf/5mDVdOn5LRadIAP+gU0yt+S+H1K0tXeAKtrUlp6sD/vvU47yQh+1Q==",
+  "dgSpecHash": "17DA6mo0TqTzA1T0DofbLbLKfz0cNCktAp1Tjl6ufDo+InXj4aEZpdCDPmbd6m9ymijo3YN4tdUhczHPbL54ow==",
   "success": true,
-  "projectFilePath": "C:\\Users\\MCX\\Source\\Repos\\miaochenxi\\CheckIn\\CheckInWpf\\CheckInWpf.csproj",
+  "projectFilePath": "C:\\Users\\miaoc\\Documents\\GitHub\\CheckIn\\CheckInWpf\\CheckInWpf.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\MCX\\.nuget\\packages\\entityframework\\6.3.0\\entityframework.6.3.0.nupkg.sha512",
-    "C:\\Users\\MCX\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.4\\microsoft.aspnet.webapi.client.5.2.4.nupkg.sha512",
-    "C:\\Users\\MCX\\.nuget\\packages\\newtonsoft.json\\11.0.1\\newtonsoft.json.11.0.1.nupkg.sha512",
-    "C:\\Users\\MCX\\.nuget\\packages\\pathoschild.http.fluentclient\\3.2.0\\pathoschild.http.fluentclient.3.2.0.nupkg.sha512",
-    "C:\\Users\\MCX\\.nuget\\packages\\system.data.sqlite\\1.0.113.1\\system.data.sqlite.1.0.113.1.nupkg.sha512",
-    "C:\\Users\\MCX\\.nuget\\packages\\system.data.sqlite.core\\1.0.113.1\\system.data.sqlite.core.1.0.113.1.nupkg.sha512",
-    "C:\\Users\\MCX\\.nuget\\packages\\system.data.sqlite.ef6\\1.0.113\\system.data.sqlite.ef6.1.0.113.nupkg.sha512",
-    "C:\\Users\\MCX\\.nuget\\packages\\system.data.sqlite.linq\\1.0.113\\system.data.sqlite.linq.1.0.113.nupkg.sha512",
-    "C:\\Users\\MCX\\.nuget\\packages\\system.drawing.common\\4.7.0\\system.drawing.common.4.7.0.nupkg.sha512",
-    "C:\\Users\\MCX\\.nuget\\packages\\system.text.encodings.web\\4.4.0\\system.text.encodings.web.4.4.0.nupkg.sha512",
-    "C:\\Users\\MCX\\.nuget\\packages\\tencentcloudsdk\\3.0.149\\tencentcloudsdk.3.0.149.nupkg.sha512"
+    "C:\\Users\\miaoc\\.nuget\\packages\\entityframework\\6.3.0\\entityframework.6.3.0.nupkg.sha512",
+    "C:\\Users\\miaoc\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.4\\microsoft.aspnet.webapi.client.5.2.4.nupkg.sha512",
+    "C:\\Users\\miaoc\\.nuget\\packages\\newtonsoft.json\\11.0.1\\newtonsoft.json.11.0.1.nupkg.sha512",
+    "C:\\Users\\miaoc\\.nuget\\packages\\pathoschild.http.fluentclient\\3.2.0\\pathoschild.http.fluentclient.3.2.0.nupkg.sha512",
+    "C:\\Users\\miaoc\\.nuget\\packages\\system.data.sqlite\\1.0.113.1\\system.data.sqlite.1.0.113.1.nupkg.sha512",
+    "C:\\Users\\miaoc\\.nuget\\packages\\system.data.sqlite.core\\1.0.113.1\\system.data.sqlite.core.1.0.113.1.nupkg.sha512",
+    "C:\\Users\\miaoc\\.nuget\\packages\\system.data.sqlite.ef6\\1.0.113\\system.data.sqlite.ef6.1.0.113.nupkg.sha512",
+    "C:\\Users\\miaoc\\.nuget\\packages\\system.data.sqlite.linq\\1.0.113\\system.data.sqlite.linq.1.0.113.nupkg.sha512",
+    "C:\\Users\\miaoc\\.nuget\\packages\\system.drawing.common\\4.7.0\\system.drawing.common.4.7.0.nupkg.sha512",
+    "C:\\Users\\miaoc\\.nuget\\packages\\system.text.encodings.web\\4.4.0\\system.text.encodings.web.4.4.0.nupkg.sha512",
+    "C:\\Users\\miaoc\\.nuget\\packages\\tencentcloudsdk\\3.0.149\\tencentcloudsdk.3.0.149.nupkg.sha512"
   ],
   "logs": []
 }

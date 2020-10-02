@@ -18,12 +18,14 @@
             <RowDefinition Height="62*"/>
         </Grid.RowDefinitions>
 
-        <WindowsFormsHost Background="Transparent" Grid.Row="1">
+        <WindowsFormsHost Background="Transparent" Grid.Row="1" Foreground="#FFFAFAFA">
             <controls:VideoSourcePlayer x:Name="videosourceplayer"></controls:VideoSourcePlayer>
         </WindowsFormsHost>
-        <ListView x:Name="list" Grid.Column="1" ItemsSource="{Binding}" Background="#FFF3F3F3" HorizontalContentAlignment="Left" FontSize="24" Grid.RowSpan="3"/>
-        <Label x:Name="date" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="92px" Height="141" Width="300" Grid.Row="1" Grid.RowSpan="2"/>
-        <Button x:Name="btn" Content="签到" HorizontalAlignment="Center" Height="34" Margin="0,50,0,0" Grid.Row="2" VerticalAlignment="Top" Width="82" Click="check"/>
+        <Label Content="人脸识别区" Grid.Row="1" Grid.Column="0" FontSize="36" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FFF1F1F1"/>
+        <ListView x:Name="list" Grid.Column="1" ItemsSource="{Binding}" Background="#FFF3F3F3" HorizontalContentAlignment="Left" FontSize="24" Grid.RowSpan="3" BorderBrush="White"/>
+        <Label x:Name="date" Grid.Column="2" FontSize="92px" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Button x:Name="btn" Content="考勤" HorizontalAlignment="Center" Height="34" Margin="0,50,0,0" Grid.Row="2" VerticalAlignment="Top" Width="82" Click="Check"/>
         <Label Content="" x:Name="notice" HorizontalAlignment="Center" Margin="0,89,0,0" Grid.Row="2" VerticalAlignment="Top" FontSize="16"/>
+        <TextBlock Grid.Column="2" Margin="0" Grid.Row="2" x:Name="messages"  TextWrapping="Wrap" Text="消息:" ScrollViewer.HorizontalScrollBarVisibility="Auto" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20"/>
     </Grid>
 </Window>

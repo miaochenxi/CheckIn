@@ -633,19 +633,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\MCX\\.nuget\\packages\\": {}
+    "C:\\Users\\miaoc\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\MCX\\Source\\Repos\\miaochenxi\\CheckIn\\CheckInWpf\\CheckInWpf.csproj",
+      "projectUniqueName": "C:\\Users\\miaoc\\Documents\\GitHub\\CheckIn\\CheckInWpf\\CheckInWpf.csproj",
       "projectName": "CheckInWpf",
-      "projectPath": "C:\\Users\\MCX\\Source\\Repos\\miaochenxi\\CheckIn\\CheckInWpf\\CheckInWpf.csproj",
-      "packagesPath": "C:\\Users\\MCX\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\MCX\\Source\\Repos\\miaochenxi\\CheckIn\\CheckInWpf\\obj\\",
+      "projectPath": "C:\\Users\\miaoc\\Documents\\GitHub\\CheckIn\\CheckInWpf\\CheckInWpf.csproj",
+      "packagesPath": "C:\\Users\\miaoc\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\miaoc\\Documents\\GitHub\\CheckIn\\CheckInWpf\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\MCX\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\miaoc\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
