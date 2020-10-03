@@ -4,27 +4,34 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:controls="clr-namespace:AForge.Controls;assembly=AForge.Controls"
         mc:Ignorable="d"
-        Title="软创签到系统" Height="450" Width="800" WindowState="Maximized" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" Background="#FF121212">
+        Title="软创签到系统" Height="450" Width="800" WindowState="Maximized" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" Background="#FF0E88CD">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="217*"/>
-            <ColumnDefinition Width="140*"/>
-            <ColumnDefinition Width="443*"/>
+            <ColumnDefinition Width="13*"/>
+            <ColumnDefinition Width="280*"/>
+            <ColumnDefinition Width="107*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="70"/>
-            <RowDefinition Height="33*"/>
-            <RowDefinition Height="62*"/>
+            <RowDefinition Height="129"/>
+            <RowDefinition Height="280*"/>
+            <RowDefinition Height="41*"/>
         </Grid.RowDefinitions>
-        <WindowsFormsHost Background="Transparent" Grid.Row="1">
-            <controls:VideoSourcePlayer x:Name="videosourceplayer"></controls:VideoSourcePlayer>
+        <WindowsFormsHost Background="Transparent" Grid.Row="1" Grid.Column="1" Margin="60,0,90,50">
+            <controls:VideoSourcePlayer x:Name="videosourceplayer"/>
         </WindowsFormsHost>
-        <Label Content="人脸识别区" Grid.Row="1" Grid.Column="0" FontSize="36" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Transparent" Foreground="#FF5D5D5D"/>
-        <ListView x:Name="list" Grid.Column="1" ItemsSource="{Binding}" Background="Transparent" HorizontalContentAlignment="Left" FontSize="24" Grid.RowSpan="2" BorderBrush="#FF1D1D1D" Grid.Row="1" Foreground="LightGray"/>
-        <Label x:Name="date" Grid.Column="2" FontSize="92px" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FFD4D4D4"/>
-        <Button x:Name="btn" Content="考勤" HorizontalAlignment="Center" Background="#FF383838" Height="34" Margin="68,50,67,0" Grid.Row="2" VerticalAlignment="Top" Width="82" Click="Check" Foreground="#FFC1C1C1"/>
-        <Label Content="" x:Name="notice" HorizontalAlignment="Center" Margin="104,89,103,0" Grid.Row="2" VerticalAlignment="Top" FontSize="16" Height="30" Width="10"/>
-        <TextBlock Grid.Column="2" Margin="201,0,196,0" Grid.Row="2" x:Name="messages"  TextWrapping="Wrap" ScrollViewer.HorizontalScrollBarVisibility="Auto" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" Foreground="#FFB6B6B6"/>
-        <Label Content="软  创  实  验  室  人  脸  考  勤  系  统" Margin="0" FontSize="36" Grid.ColumnSpan="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Transparent" Foreground="#FFD1D1D1"/>
+        <Border CornerRadius="20" Background="#4CFFFFFF" Grid.Row="1" Grid.Column="1" Margin="40,0,70,50">
+            <Image  Source="handsome.png" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,50,0,0"/>
+        </Border>
+        <Border Grid.Column="2" Grid.Row="1" Grid.RowSpan="2" CornerRadius="20" Background="#4CFFFFFF" Padding="30,70,30,30" Margin="0,0,30,30">
+            <ListView x:Name="list" ItemsSource="{Binding}" Background="#CCFFFFFF" HorizontalContentAlignment="Left" FontSize="24" BorderBrush="#009C9C9C" Foreground="#F2000000"/>
+        </Border>
+        <Label x:Name="date" Grid.Column="2" FontSize="48" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White" VerticalAlignment="Top" Margin="0,0,30,0"/>
+        <Button x:Name="btn" Content="考勤" Height="50" Margin="0" Grid.Row="2" Grid.Column="1" Background="#CCFFFFFF" Click="Check" Foreground="#E5000000" HorizontalAlignment="Center" VerticalAlignment="Top" Width="100" BorderBrush="#00707070"/>
+        <Label Content="" x:Name="notice" HorizontalAlignment="Center" Margin="0,0,0,10" Grid.Row="1" VerticalAlignment="Bottom" FontSize="16" Foreground="#E5FFFFFF" Grid.Column="1"/>
+        <TextBlock Grid.Column="1" Margin="0,0,0,10" Grid.Row="1" x:Name="messages"  TextWrapping="Wrap" ScrollViewer.HorizontalScrollBarVisibility="Auto" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="20" Foreground="#E5FFFFFF"/>
+        <Border  Background="White" CornerRadius="20" VerticalAlignment="Center" Grid.ColumnSpan="3" Margin="16,36,16,37" Padding="0" HorizontalAlignment="Center" Height="56" Width="768">
+            <Label Content="软  创  实  验  室  人  脸  考  勤  系  统" FontSize="36" Grid.ColumnSpan="3" Foreground="#FF303030" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        </Border>
+
     </Grid>
 </Window>

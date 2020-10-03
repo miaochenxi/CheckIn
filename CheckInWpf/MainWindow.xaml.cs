@@ -130,6 +130,8 @@ namespace CheckInWpf
 
         private void Check(object sender, RoutedEventArgs e)//考勤点击事件
         {
+            notice.Content = "";
+            messages.Text = "";
             FilterInfoCollection videoDevices;
             videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
 
@@ -197,6 +199,7 @@ namespace CheckInWpf
                     TimeSpan timespan = DateTime.Now - temp;
                     Dispatcher.Invoke(new Action(delegate
                     {
+                        notice.Content = "";
                         messages.Text = "签退成功!本次时长:"+(int)timespan.TotalMinutes+"分钟";
                     }));
                 }
@@ -207,6 +210,7 @@ namespace CheckInWpf
                     Dispatcher.Invoke(new Action(delegate
                     {
                         messages.Text = "签到成功!";
+                        notice.Content = "";
                     }));
                 }
             }

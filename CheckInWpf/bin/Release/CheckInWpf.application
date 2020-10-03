@@ -7,14 +7,14 @@
     <framework targetVersion="4.7.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="CheckInWpf.exe.manifest" size="15499">
+    <dependentAssembly dependencyType="install" codebase="CheckInWpf.exe.manifest" size="15500">
       <assemblyIdentity name="CheckInWpf.exe" version="1.0.0.4" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>C4ARLlmU92/MPMl0vUQDULmJ+sU46Vp3ixS/kqQ1L0M=</dsig:DigestValue>
+        <dsig:DigestValue>+nbiXyuirh6OVX25U6UbiD5+WjTivqaiqvJsxfINnE8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
