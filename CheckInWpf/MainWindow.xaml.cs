@@ -12,6 +12,7 @@ using TencentCloud.Iai.V20200303.Models;
 using TencentCloud.Iai.V20200303;
 using System.Drawing.Imaging;
 using Newtonsoft.Json;
+using System.Collections;
 
 namespace CheckInWpf
 {
@@ -22,7 +23,7 @@ namespace CheckInWpf
     {
         static string DB_PATH;//数据库文件路径
         string query = "SELECT * FROM 'check' order by time desc";
-        string addtime = "UPDATE 'check' SET time=time+1";
+        Hashtable Check_IN = new Hashtable();
         SQLiteConnection connection = null;
         SQLiteCommand command = null;
         SQLiteDataReader reader;
@@ -30,37 +31,44 @@ namespace CheckInWpf
         List<string> ID_List=new List<string>();
         public MainWindow()
         {
-            InitializeComponent();
-            videosourceplayer.BorderColor = System.Drawing.Color.Transparent;
-            DB_PATH = @"f:\checkin.d";
-            
-            if (!File.Exists(DB_PATH))
+            try
             {
-                connection = new SQLiteConnection("data source="+DB_PATH);
-                connection.Open();
-            }
-            else
+
+                InitializeComponent();
+
+                videosourceplayer.BorderColor = System.Drawing.Color.Transparent;
+                DB_PATH = @"f:\checkin.d";
+
+                if (!File.Exists(DB_PATH))
+                {
+                    connection = new SQLiteConnection("data source=" + DB_PATH);
+                    connection.Open();
+                }
+                else
+                {
+                    connection = new SQLiteConnection("data source=" + DB_PATH);
+                    connection.Open();
+                }
+
+
+                command = new SQLiteCommand(query, connection);
+                reader = command.ExecuteReader();
+
+                member = new List<string>();
+                for (int i = 0; reader.Read(); i++)
+                {
+                    member.Add(reader.GetString(1) + ":  " + reader.GetInt32(2) + " Min");
+                }
+                list.ItemsSource = member;
+                list.FontSize = 24;
+                date.Content = DateTime.Now.ToShortTimeString();
+                Timer threadTimer = new Timer(refreshUI);
+                threadTimer.Change(1000, 60000);
+
+            }catch(Exception c)
             {
-                connection = new SQLiteConnection("data source="+DB_PATH);
-                connection.Open();
+                MessageBox.Show(c.ToString());
             }
-
-            
-            command = new SQLiteCommand(query,connection);
-            reader = command.ExecuteReader();
-
-            member=new List<string>();
-            for(int i=0; reader.Read();i++)
-            {
-                member.Add(reader.GetString(1)+":  "+reader.GetInt32(2)+" min");
-            }
-            list.ItemsSource = member;
-            list.FontSize = 24;
-            date.Content = DateTime.Now.ToShortTimeString();
-            Timer threadTimer = new Timer(refreshUI);
-            threadTimer.Change(1000, 3000);
-
-
 
         }
 
@@ -93,7 +101,7 @@ namespace CheckInWpf
             reader = command.ExecuteReader();
             for (int i = 0; reader.Read(); i++)
             {
-                member.Add(reader.GetString(1) + ":  " + reader.GetInt32(2) + " min");
+                member.Add(reader.GetString(1) + ":  " + reader.GetInt32(2) + " Min");
             }
             try
             {
@@ -149,7 +157,7 @@ namespace CheckInWpf
 
         private void Face()
         {
-            Thread.Sleep(500);
+            Thread.Sleep(1500);
             try
             {
                 Credential cred = new Credential
@@ -177,15 +185,25 @@ namespace CheckInWpf
                 float score = convert.Results[0].Candidates[0].Score;
                 if (ID_List.Exists(t => t == id))
                 {
+                    ID_List.Remove(id);
+                    DateTime temp=DateTime.Now;
+                    foreach(DictionaryEntry dictionaryEntry in Check_IN)
+                    {
+                        if(dictionaryEntry.Key.Equals(id))
+                        {
+                            temp = (DateTime)dictionaryEntry.Value;
+                        }
+                    }
+                    TimeSpan timespan = DateTime.Now - temp;
                     Dispatcher.Invoke(new Action(delegate
                     {
-                        messages.Text = "签退成功!";
+                        messages.Text = "签退成功!本次时长:"+(int)timespan.TotalMinutes+"分钟";
                     }));
-                    ID_List.Remove(id);
                 }
                 else
                 {
                     ID_List.Add(id);
+                    Check_IN.Add(id, DateTime.Now);
                     Dispatcher.Invoke(new Action(delegate
                     {
                         messages.Text = "签到成功!";
