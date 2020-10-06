@@ -101,14 +101,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CheckInWpf.exe" size="509400">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CheckInWpf.exe" size="511448">
       <assemblyIdentity name="CheckInWpf" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>QqsXgpqrzCfGh/Wum/11eObo+3Jfomj0YafAonsM++A=</dsig:DigestValue>
+        <dsig:DigestValue>bJzyGgDx7/yWTyotgMAQM+otn9E0Jdsz3efB/OmjYnM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

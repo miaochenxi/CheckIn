@@ -70,6 +70,7 @@ C:\Users\MCX\Documents\GitHub\CheckIn\CheckInWpf\bin\Release\System.Data.SQLite.
 C:\Users\MCX\Documents\GitHub\CheckIn\CheckInWpf\bin\Release\System.Data.SQLite.dll.config
 C:\Users\MCX\Documents\GitHub\CheckIn\CheckInWpf\bin\Release\System.Net.Http.Formatting.xml
 C:\Users\MCX\Documents\GitHub\CheckIn\CheckInWpf\bin\Release\System.Text.Encodings.Web.xml
+C:\Users\MCX\Documents\GitHub\CheckIn\CheckInWpf\obj\Release\CheckInWpf.csprojAssemblyReference.cache
 C:\Users\MCX\Documents\GitHub\CheckIn\CheckInWpf\obj\Release\MainWindow.baml
 C:\Users\MCX\Documents\GitHub\CheckIn\CheckInWpf\obj\Release\MainWindow.g.cs
 C:\Users\MCX\Documents\GitHub\CheckIn\CheckInWpf\obj\Release\App.g.cs

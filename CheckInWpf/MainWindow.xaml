@@ -5,6 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:controls="clr-namespace:AForge.Controls;assembly=AForge.Controls"
         mc:Ignorable="d"
         Title="软创签到系统" Height="450" Width="800" WindowState="Maximized" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" Background="#FF0E88CD">
+    <Window.Resources>
+        <Style TargetType="ListViewItem">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Checked}" Value="false">
+                    <Setter Property="Foreground" Value="#99000000"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="13*"/>
@@ -17,7 +26,7 @@
             <RowDefinition Height="41*"/>
         </Grid.RowDefinitions>
         <WindowsFormsHost Background="Transparent" Grid.Row="1" Grid.Column="1" Margin="60,0,90,50">
-            <controls:VideoSourcePlayer x:Name="videosourceplayer"/>
+            <controls:VideoSourcePlayer x:Name="videosourceplayer" ForeColor="transparent"/>
         </WindowsFormsHost>
         <Border CornerRadius="20" Background="#4CFFFFFF" Grid.Row="1" Grid.Column="1" Margin="40,0,70,50">
             <Image  Source="handsome.png" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,50,0,0"/>

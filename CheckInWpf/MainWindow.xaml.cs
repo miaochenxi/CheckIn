@@ -22,18 +22,17 @@ namespace CheckInWpf
     public partial class MainWindow : Window
     {
         static string DB_PATH;//数据库文件路径
-        string query = "SELECT * FROM 'check' order by time desc";
-        Hashtable Check_IN = new Hashtable();
+        readonly string query = "SELECT * FROM 'check' order by time desc";
+        Hashtable Check_IN = new Hashtable();//签入时间
         SQLiteConnection connection = null;
         SQLiteCommand command = null;
         SQLiteDataReader reader;
-        List<string> member;
-        List<string> ID_List=new List<string>();
+        List<ListItem> member = new List<ListItem>();//数据库全部人员列表
+        List<string> ID_List=new List<string>();//已签列表
         public MainWindow()
         {
             try
             {
-
                 InitializeComponent();
 
                 videosourceplayer.BorderColor = System.Drawing.Color.Transparent;
@@ -50,20 +49,12 @@ namespace CheckInWpf
                     connection.Open();
                 }
 
-
                 command = new SQLiteCommand(query, connection);
                 reader = command.ExecuteReader();
-
-                member = new List<string>();
-                for (int i = 0; reader.Read(); i++)
-                {
-                    member.Add(reader.GetString(1) + ":  " + reader.GetInt32(2) + " Min");
-                }
-                list.ItemsSource = member;
                 list.FontSize = 24;
                 date.Content = DateTime.Now.ToShortTimeString();
                 Timer threadTimer = new Timer(refreshUI);
-                threadTimer.Change(1000, 60000);
+                threadTimer.Change(0, 60000);
 
             }catch(Exception c)
             {
@@ -74,34 +65,43 @@ namespace CheckInWpf
 
         private void refreshUI(object state)
         {
-            string UpdateData= "UPDATE 'check' SET time=time+1 where id=";
+            string UpdateData= "UPDATE 'check' SET time=time+1 where id in (";
 
             if (ID_List.Count != 0)
             {
-                foreach (string ID in ID_List)
+                for (int i = 0; i < ID_List.Count; i++)
                 {
-                    if (ID_List[ID_List.Count - 1] == ID)
-                    {
-                        UpdateData += ID;
-                        break;
-                    }
-                    UpdateData += ID + ",";
+                    UpdateData += ID_List[i] + ",";
                 }
+                UpdateData = UpdateData.TrimEnd(',');
+                UpdateData += ")";
             }
             
             member.Clear();
             reader.Close();
+
             if (ID_List.Count!=0)
             {
                 command.CommandText = UpdateData;
                 command.ExecuteNonQuery();
             }
-            
+
             command.CommandText = query;
             reader = command.ExecuteReader();
             for (int i = 0; reader.Read(); i++)
             {
-                member.Add(reader.GetString(1) + ":  " + reader.GetInt32(2) + " Min");
+                ListItem listItem = new ListItem(reader.GetString(1) + ":  " + reader.GetInt32(2) + " Min", reader.GetString(0));
+                string id = reader.GetString(0);
+                foreach(string item in ID_List)
+                {
+                    if (item.Equals(id))
+                    {
+                        listItem.Checked = true;
+                        break;
+                    }
+
+                }
+                member.Add(listItem);
             }
             try
             {
@@ -125,6 +125,7 @@ namespace CheckInWpf
             System.Drawing.Image image = System.Drawing.Image.FromFile("f:\\face.cache");
             image.Save(memStream,image.RawFormat);
             byte[] imageBytes = memStream.ToArray();
+            image.Dispose();
             return Convert.ToBase64String(imageBytes);
         }
 
@@ -159,7 +160,7 @@ namespace CheckInWpf
 
         private void Face()
         {
-            Thread.Sleep(1500);
+            Thread.Sleep(2000);
             try
             {
                 Credential cred = new Credential
@@ -182,41 +183,80 @@ namespace CheckInWpf
                 SearchFacesResponse resp = client.SearchFacesSync(req);
                 string jsonObject = AbstractModel.ToJsonString(resp);
                 FaceResult convert = JsonConvert.DeserializeObject<FaceResult>(jsonObject);
-                
+
                 string id = convert.Results[0].Candidates[0].PersonId;
                 float score = convert.Results[0].Candidates[0].Score;
-                if (ID_List.Exists(t => t == id))
+                if (score > 90)
                 {
-                    ID_List.Remove(id);
-                    DateTime temp=DateTime.Now;
-                    foreach(DictionaryEntry dictionaryEntry in Check_IN)
+                    if (ID_List.Exists(t => t == id))
                     {
-                        if(dictionaryEntry.Key.Equals(id))
+                        ID_List.Remove(id);
+                        Check_IN.Remove(id);
+                        DateTime temp = DateTime.Now;
+                        foreach (DictionaryEntry dictionaryEntry in Check_IN)
                         {
-                            temp = (DateTime)dictionaryEntry.Value;
+                            if (dictionaryEntry.Key.Equals(id))
+                            {
+                                temp = (DateTime)dictionaryEntry.Value;
+                                break;
+                            }
                         }
+                        TimeSpan timespan = DateTime.Now - temp;
+                        foreach (ListItem item in member)
+                        {
+                            if (item.GetID() == id)
+                            {
+                                item.Checked = false;
+                                break;
+                            }
+                        }
+                        Dispatcher.Invoke(new Action(delegate
+                        {
+                            notice.Content = "";
+                            messages.Text = "签退成功!本次时长:" + (int)timespan.TotalMinutes + "分钟";
+                            
+                            list.ItemsSource = null;
+                            list.ItemsSource = member;
+                            
+                        }));
                     }
-                    TimeSpan timespan = DateTime.Now - temp;
-                    Dispatcher.Invoke(new Action(delegate
+                    else
                     {
-                        notice.Content = "";
-                        messages.Text = "签退成功!本次时长:"+(int)timespan.TotalMinutes+"分钟";
-                    }));
-                }
-                else
+                        ID_List.Add(id);
+                        Check_IN.Add(id, DateTime.Now);
+                        foreach(ListItem item in member)
+                        {
+                            if (item.GetID()==id)
+                            {
+                                item.Checked = true;
+                                break;
+                            }
+                        }
+
+                        Dispatcher.Invoke(new Action(delegate
+                        {
+                            messages.Text = "签到成功!";
+                            notice.Content = "";
+                            
+                            list.ItemsSource = null;
+                            list.ItemsSource = member;
+                            
+                        }));
+                    }
+                }else
                 {
-                    ID_List.Add(id);
-                    Check_IN.Add(id, DateTime.Now);
                     Dispatcher.Invoke(new Action(delegate
                     {
-                        messages.Text = "签到成功!";
+                        messages.Text = "没有这张脸的数据!";
                         notice.Content = "";
                     }));
                 }
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("未检测到人脸！");
+                //MessageBox.Show(ex.ToString());
             }
             finally
             {
@@ -228,18 +268,5 @@ namespace CheckInWpf
                 }));
             }
         }
-    }
-    class FaceResult
-    {
-        public List<Results> Results { get; set; }
-    }
-    public class Results
-    {
-        public List<Candidates> Candidates { get; set; }
-    }
-    public class Candidates
-    {
-        public string PersonId { get; set; }
-        public float Score { get; set; }
     }
 }
