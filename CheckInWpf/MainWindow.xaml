@@ -39,7 +39,7 @@
         <Label Content="" x:Name="notice" HorizontalAlignment="Center" Margin="0,0,0,10" Grid.Row="1" VerticalAlignment="Bottom" FontSize="16" Foreground="#E5FFFFFF" Grid.Column="1"/>
         <TextBlock Grid.Column="1" Margin="0,0,0,10" Grid.Row="1" x:Name="messages"  TextWrapping="Wrap" ScrollViewer.HorizontalScrollBarVisibility="Auto" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="20" Foreground="#E5FFFFFF"/>
         <Border  Background="White" CornerRadius="20" VerticalAlignment="Center" Grid.ColumnSpan="3" Margin="16,36,16,37" Padding="0" HorizontalAlignment="Center" Height="56" Width="768">
-            <Label Content="软  创  实  验  室  人  脸  考  勤  系  统" FontSize="36" Grid.ColumnSpan="3" Foreground="#FF303030" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label Content="软  创  实  验  室  人  脸  考  勤  系  统" FontSize="36" Grid.ColumnSpan="3" Foreground="#FF303030" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MouseDoubleClick="DB_Click"/>
         </Border>
 
     </Grid>

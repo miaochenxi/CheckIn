@@ -23,12 +23,12 @@ namespace CheckInWpf
     {
         static string DB_PATH;//数据库文件路径
         readonly string query = "SELECT * FROM 'check' order by time desc";
-        Hashtable Check_IN = new Hashtable();//签入时间
+        public Hashtable Check_IN = new Hashtable();//签入时间
         SQLiteConnection connection = null;
         SQLiteCommand command = null;
         SQLiteDataReader reader;
-        List<ListItem> member = new List<ListItem>();//数据库全部人员列表
-        List<string> ID_List=new List<string>();//已签列表
+        public List<ListItem> member = new List<ListItem>();//数据库全部人员列表
+        public List<string> ID_List=new List<string>();//已签列表
         public MainWindow()
         {
             try
@@ -190,8 +190,6 @@ namespace CheckInWpf
                 {
                     if (ID_List.Exists(t => t == id))
                     {
-                        ID_List.Remove(id);
-                        Check_IN.Remove(id);
                         DateTime temp = DateTime.Now;
                         foreach (DictionaryEntry dictionaryEntry in Check_IN)
                         {
@@ -201,6 +199,8 @@ namespace CheckInWpf
                                 break;
                             }
                         }
+                        ID_List.Remove(id);
+                        Check_IN.Remove(id);
                         TimeSpan timespan = DateTime.Now - temp;
                         foreach (ListItem item in member)
                         {
@@ -267,6 +267,13 @@ namespace CheckInWpf
                     videosourceplayer.Stop();
                 }));
             }
+        }
+
+        private void DB_Click(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            CommandWindow commandWindow = new CommandWindow(this);
+            commandWindow.Owner = this;
+            commandWindow.Show();
         }
     }
 }

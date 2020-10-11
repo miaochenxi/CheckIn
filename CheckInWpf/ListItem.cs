@@ -1,7 +1,7 @@
 ﻿
 namespace CheckInWpf
 {
-    class ListItem
+    public class ListItem
     {
         public ListItem(string content)
         {
