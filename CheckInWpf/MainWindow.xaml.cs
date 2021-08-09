@@ -165,8 +165,8 @@ namespace CheckInWpf
             {
                 Credential cred = new Credential
                 {
-                    SecretId = "AKIDAHE4whBesvRySnu85qTzOgqocIn94KPO",
-                    SecretKey = "yrZ5RlvJZiiXHwRmuujR2b3KPJ2e9Vk0",
+                    SecretId = "*******", // 腾讯
+                    SecretKey = "********",
                 };
 
                 ClientProfile clientProfile = new ClientProfile();
